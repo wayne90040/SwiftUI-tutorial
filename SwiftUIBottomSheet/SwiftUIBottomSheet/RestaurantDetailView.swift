@@ -12,24 +12,40 @@ struct RestaurantDetailView: View {
     
     var body: some View {
         
-        VStack {
-            HandleBar()
-            
-            TitleBar()
-            
-            HeaderView(restaurant: restaurant)
-            
-            DetailInfoView(icon: "map", info: restaurant.location)
-                .padding(.top)
-            
-            DetailInfoView(icon: "phone", info: restaurant.phone)
-                .padding(.top)
-            
-            DetailInfoView(info: restaurant.description)
-                .padding(.top)
+        /// Use `GeometryReader` to Get Device info
+        GeometryReader {
+            VStack {
+                HandleBar()
+                
+                ScrollView(.vertical) {
+                    TitleBar()
+                    
+                    HeaderView(restaurant: restaurant)
+                    
+                    DetailInfoView(icon: "map", info: restaurant.location)
+                        .padding(.top)
+                    
+                    DetailInfoView(icon: "phone", info: restaurant.phone)
+                        .padding(.top)
+                    
+                    DetailInfoView(info: restaurant.description)
+                        .padding(.top)
+                }
+                .background(Color.white)
+                .cornerRadius(10, antialiased: true)
+            }
+            /// GeometryReader
+            .offset(y: $0.size.height / 2)
+            .edgesIgnoringSafeArea(.all)
         }
-        .background(Color.white)
-        .cornerRadius(10, antialiased: true)
+    }
+}
+
+
+struct RestaurantDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        RestaurantDetailView(restaurant: restaurants[0])
+           
     }
 }
 
@@ -125,11 +141,5 @@ struct DetailInfoView: View {
                 .font(.system(.body, design: .rounded))
             Spacer()
         }.padding(.horizontal)
-    }
-}
-
-struct RestaurantDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantDetailView(restaurant: restaurants[0])
     }
 }
