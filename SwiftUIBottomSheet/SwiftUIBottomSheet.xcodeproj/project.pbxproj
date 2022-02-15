@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DCCC49D27BB3F43008E4353 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCCC49C27BB3F43008E4353 /* RestaurantDetailView.swift */; };
 		F462FE5C24FE43A9006875E2 /* SwiftUIBottomSheetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462FE5B24FE43A9006875E2 /* SwiftUIBottomSheetApp.swift */; };
 		F462FE5E24FE43A9006875E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462FE5D24FE43A9006875E2 /* ContentView.swift */; };
 		F462FE6024FE43AB006875E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F462FE5F24FE43AB006875E2 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DCCC49C27BB3F43008E4353 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		F462FE5824FE43A9006875E2 /* SwiftUIBottomSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIBottomSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F462FE5B24FE43A9006875E2 /* SwiftUIBottomSheetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIBottomSheetApp.swift; sourceTree = "<group>"; };
 		F462FE5D24FE43A9006875E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				F462FE6A24FE90F3006875E2 /* Model */,
 				F462FE5B24FE43A9006875E2 /* SwiftUIBottomSheetApp.swift */,
+				2DCCC49C27BB3F43008E4353 /* RestaurantDetailView.swift */,
 				F462FE5D24FE43A9006875E2 /* ContentView.swift */,
 				F462FE5F24FE43AB006875E2 /* Assets.xcassets */,
 				F462FE6424FE43AB006875E2 /* Info.plist */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DCCC49D27BB3F43008E4353 /* RestaurantDetailView.swift in Sources */,
 				F462FE5E24FE43A9006875E2 /* ContentView.swift in Sources */,
 				F462FE5C24FE43A9006875E2 /* SwiftUIBottomSheetApp.swift in Sources */,
 				F462FE6C24FE910A006875E2 /* Restaurant.swift in Sources */,
