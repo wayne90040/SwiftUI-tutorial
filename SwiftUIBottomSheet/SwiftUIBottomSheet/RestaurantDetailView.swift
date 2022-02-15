@@ -7,7 +7,43 @@
 
 import SwiftUI
 
+enum DragState {
+    
+    case inactive
+    
+    case pressing
+    
+    case dragging(translation: CGSize)
+    
+    var translation: CGSize {
+        
+        switch self {
+        case .inactive, .pressing:
+            return .zero
+        case .dragging(let translation):
+            return translation
+        }
+    }
+    
+    var isDragging: Bool {
+        
+        switch self {
+        case .pressing, .dragging:
+            return true
+        case .inactive:
+            return false
+        }
+    }
+}
+
 struct RestaurantDetailView: View {
+    
+    /// 偵測手勢狀態
+    @GestureState private var dragState: DragState = .inactive
+    
+    /// 偵測位置偏移量
+    @State private var positionOffSet: CGFloat = 0
+    
     let restaurant: Restaurant
     
     var body: some View {
@@ -35,9 +71,18 @@ struct RestaurantDetailView: View {
                 .cornerRadius(10, antialiased: true)
             }
             /// GeometryReader
-            .offset(y: $0.size.height / 2)
+            .offset(y: $0.size.height / 2 + dragState.translation.height)
             .animation(.interpolatingSpring(stiffness: 200, damping: 25), value: 10)
             .edgesIgnoringSafeArea(.all)
+            
+            // MARK: - 目前已經可以透過 HandleBar() 來滑動式圖
+            // 之後要解決手勢衝突的問題(透過滑動內容來控制視圖全開)
+            .gesture(DragGesture()
+                /// Update `dragState`
+                .updating($dragState, body: { value, state, transaction in
+                    state = .dragging(translation: value.translation)
+                })
+            )
         }
     }
 }
