@@ -46,7 +46,7 @@ struct ContentView: View {
                             isShowDetail = false
                         }
                     
-                    RestaurantDetailView(restaurant: model)
+                    RestaurantDetailView(isShow: $isShowDetail, restaurant: model)
                         .transition(.move(edge: .bottom))
                 }
             }

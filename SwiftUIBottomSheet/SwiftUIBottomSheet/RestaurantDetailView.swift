@@ -38,49 +38,106 @@ enum DragState {
 
 struct RestaurantDetailView: View {
     
+    enum ViewState {
+        
+        case full
+        
+        case half
+    }
+    
     /// 偵測手勢狀態
     @GestureState private var dragState: DragState = .inactive
     
     /// 偵測位置偏移量
     @State private var positionOffSet: CGFloat = 0
     
+    /// default 展開一半
+    @State private var viewState: ViewState = .half
+    
+    @State private var scrollOffset: CGFloat = 0.0
+    
+    @Binding var isShow: Bool
+    
     let restaurant: Restaurant
     
     var body: some View {
         
         /// Use `GeometryReader` to Get Device info
-        GeometryReader {
+        GeometryReader { reader in
+            
             VStack {
                 HandleBar()
                 
                 ScrollView(.vertical) {
-                    TitleBar()
                     
-                    HeaderView(restaurant: restaurant)
+                    /// 儲存滾動的偏移量
+                    GeometryReader { reader in
+                        Color.clear.preference(key: ScrollOffset.self,
+                                               value: reader.frame(in: .named("scroll")).minY)
+                    }.frame(height: 0)
                     
-                    DetailInfoView(icon: "map", info: restaurant.location)
-                        .padding(.top)
-                    
-                    DetailInfoView(icon: "phone", info: restaurant.phone)
-                        .padding(.top)
-                    
-                    DetailInfoView(info: restaurant.description)
-                        .padding(.top)
+                    VStack {
+                        TitleBar()
+                        
+                        HeaderView(restaurant: restaurant)
+                        
+                        DetailInfoView(icon: "map", info: restaurant.location)
+                            .padding(.top)
+                        
+                        DetailInfoView(icon: "phone", info: restaurant.phone)
+                            .padding(.top)
+                        
+                        DetailInfoView(info: restaurant.description)
+                            .padding(.top)
+                            /// fix unable to show all text
+                            .padding(.bottom, 100)
+                    }
+                    .offset(y: -scrollOffset)
+                    .animation(nil)
                 }
+                /// `DetailView` is `half`, disable `ScrollView`
+                .disabled(viewState == .half)
                 .background(Color.white)
                 .cornerRadius(10, antialiased: true)
+                .coordinateSpace(name: "scroll")
             }
-            /// GeometryReader
-            .offset(y: $0.size.height / 2 + dragState.translation.height)
+            .offset(y: reader.size.height / 2 + dragState.translation.height + positionOffSet)
             .animation(.interpolatingSpring(stiffness: 200, damping: 25), value: 10)
             .edgesIgnoringSafeArea(.all)
-            
-            // MARK: - 目前已經可以透過 HandleBar() 來滑動式圖
-            // 之後要解決手勢衝突的問題(透過滑動內容來控制視圖全開)
+            /// Handle `Full`screen to `Half`
+            .onPreferenceChange(ScrollOffset.self) { value in
+                if viewState == .full {
+                    scrollOffset = value > 0 ? value : 0
+                    
+                    if scrollOffset > 120 {
+                        positionOffSet = 0
+                        viewState = .half
+                        scrollOffset = 0
+                    }
+                }
+            }
+            /// Handle `Drag`
             .gesture(DragGesture()
                 /// Update `dragState`
                 .updating($dragState, body: { value, state, transaction in
                     state = .dragging(translation: value.translation)
+                })
+                .onEnded({ value in
+                    
+                    if viewState == .half {
+                        
+                        /// 向上滾動，超過特定位置(佔滿 3/4)則變 `Full`
+                        if value.translation.height < -reader.size.height * 0.25 {
+                            viewState = .full
+                            positionOffSet = -reader.size.height/2 + 50
+                        }
+                        
+                        if value.translation.height > reader.size.height * 0.3 {
+                            /// Hide Detail View
+                            isShow = false
+                            
+                        }
+                    }
                 })
             )
         }
@@ -90,8 +147,7 @@ struct RestaurantDetailView: View {
 
 struct RestaurantDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantDetailView(restaurant: restaurants[0])
-           
+        RestaurantDetailView(isShow: .constant(true), restaurant: restaurants[0])
     }
 }
 
@@ -187,5 +243,18 @@ struct DetailInfoView: View {
                 .font(.system(.body, design: .rounded))
             Spacer()
         }.padding(.horizontal)
+    }
+}
+
+
+/// https://stackoverflow.com/questions/62588015/get-the-current-scroll-position-of-a-swiftui-scrollview
+struct ScrollOffset: PreferenceKey {
+    
+    typealias Value = CGFloat
+    
+    static var defaultValue = CGFloat.zero
+    
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value += nextValue()
     }
 }
