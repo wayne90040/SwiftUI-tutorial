@@ -36,6 +36,7 @@ struct RestaurantDetailView: View {
             }
             /// GeometryReader
             .offset(y: $0.size.height / 2)
+            .animation(.interpolatingSpring(stiffness: 200, damping: 25), value: 10)
             .edgesIgnoringSafeArea(.all)
         }
     }
