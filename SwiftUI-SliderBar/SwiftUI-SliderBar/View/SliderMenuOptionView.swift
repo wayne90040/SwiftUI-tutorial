@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct SliderMenuOptionView: View {
+    
+    let viewModel: SliderMenuViewModel
+    
     var body: some View {
         HStack(spacing: 16) {
-            Image(systemName: "person")
+            Image(systemName: viewModel.imageName)
                 .frame(width: 24, height: 24)
             
-            Text("Profile")
+            Text(viewModel.title)
                 .font(.system(size: 15, weight: .semibold))
             
             Spacer()
@@ -24,6 +27,6 @@ struct SliderMenuOptionView: View {
 
 struct SliderMenuOptionView_Previews: PreviewProvider {
     static var previews: some View {
-        SliderMenuOptionView()
+        SliderMenuOptionView(viewModel: .profile)
     }
 }

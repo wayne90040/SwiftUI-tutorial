@@ -28,10 +28,16 @@ struct SliderMenuView: View {
                     .frame(height: 240)
                 
                 /// Cell Items
-                ForEach(0..<5) {_ in
-                    SliderMenuOptionView()
-                        .foregroundColor(.white)
+                ForEach(SliderMenuViewModel.allCases, id: \.self) { option in
+                    
+                    NavigationLink {
+                        Text(option.title)
+                    } label: {
+                        SliderMenuOptionView(viewModel: option)
+                            .foregroundColor(.white)
+                    }
                 }
+                
                 Spacer()
             }.navigationBarHidden(true)
         }

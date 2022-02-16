@@ -36,6 +36,10 @@ struct ContentView: View {
                     .navigationTitle("Home")
                 .navigationBarTitleDisplayMode(.automatic)
             }
+            .onAppear {
+                /// 解決點擊 Item 之後 SliderMenu 不會收起
+                isShowSlider = false
+            }
         }
     }
 }
