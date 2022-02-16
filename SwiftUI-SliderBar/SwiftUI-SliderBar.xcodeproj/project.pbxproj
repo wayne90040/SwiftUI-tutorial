@@ -11,6 +11,9 @@
 		2DD97C3627BCA394002A8CE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD97C3527BCA394002A8CE0 /* ContentView.swift */; };
 		2DD97C3827BCA399002A8CE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DD97C3727BCA399002A8CE0 /* Assets.xcassets */; };
 		2DD97C3B27BCA399002A8CE0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DD97C3A27BCA399002A8CE0 /* Preview Assets.xcassets */; };
+		2DD97C4227BCA70B002A8CE0 /* SliderMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD97C4127BCA70B002A8CE0 /* SliderMenuView.swift */; };
+		2DD97C4427BCA896002A8CE0 /* SliderMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD97C4327BCA896002A8CE0 /* SliderMenuHeaderView.swift */; };
+		2DD97C4627BCACFC002A8CE0 /* SliderMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD97C4527BCACFC002A8CE0 /* SliderMenuOptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		2DD97C3527BCA394002A8CE0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2DD97C3727BCA399002A8CE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DD97C3A27BCA399002A8CE0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2DD97C4127BCA70B002A8CE0 /* SliderMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderMenuView.swift; sourceTree = "<group>"; };
+		2DD97C4327BCA896002A8CE0 /* SliderMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderMenuHeaderView.swift; sourceTree = "<group>"; };
+		2DD97C4527BCACFC002A8CE0 /* SliderMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderMenuOptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				2DD97C3327BCA394002A8CE0 /* SwiftUI_SliderBarApp.swift */,
 				2DD97C3527BCA394002A8CE0 /* ContentView.swift */,
+				2DD97C4127BCA70B002A8CE0 /* SliderMenuView.swift */,
+				2DD97C4327BCA896002A8CE0 /* SliderMenuHeaderView.swift */,
+				2DD97C4527BCACFC002A8CE0 /* SliderMenuOptionView.swift */,
 				2DD97C3727BCA399002A8CE0 /* Assets.xcassets */,
 				2DD97C3927BCA399002A8CE0 /* Preview Content */,
 			);
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DD97C4627BCACFC002A8CE0 /* SliderMenuOptionView.swift in Sources */,
 				2DD97C3627BCA394002A8CE0 /* ContentView.swift in Sources */,
+				2DD97C4427BCA896002A8CE0 /* SliderMenuHeaderView.swift in Sources */,
 				2DD97C3427BCA394002A8CE0 /* SwiftUI_SliderBarApp.swift in Sources */,
+				2DD97C4227BCA70B002A8CE0 /* SliderMenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
