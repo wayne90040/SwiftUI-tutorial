@@ -8,7 +8,7 @@
 import Foundation
 
 
-class MemoryGameViewModel {
+class MemoryGameViewModel: ObservableObject {
     
     static let emojis = [
         "🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻",
@@ -21,10 +21,10 @@ class MemoryGameViewModel {
         }
     }
     
-    private var model: MemoryGame<String> = createMemoryGame()
+    @Published private(set) var model: MemoryGame<String> = createMemoryGame()
     
-    var cards: Array<MemoryGame<String>.Card> {
-        return model.cards
+    func choose(_ card: MemoryGame<String>.Card) {
+//        objectWillChange.send() /// 和 `@Published` 前綴相同
+        model.choose(card)
     }
-     
 }
