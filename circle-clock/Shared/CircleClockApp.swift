@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct circle_clockApp: App {
+struct CircleClockApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
