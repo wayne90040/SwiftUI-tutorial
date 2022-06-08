@@ -13,6 +13,10 @@
 		2D5418A6284518DD00E523B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D541894284518D500E523B6 /* ContentView.swift */; };
 		2D5418A7284518DD00E523B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D541895284518DD00E523B6 /* Assets.xcassets */; };
 		2D5418A8284518DD00E523B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D541895284518DD00E523B6 /* Assets.xcassets */; };
+		2D8967042850FCFF00636FC8 /* DigitalClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967032850FCFF00636FC8 /* DigitalClock.swift */; };
+		2D8967052850FCFF00636FC8 /* DigitalClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967032850FCFF00636FC8 /* DigitalClock.swift */; };
+		2D8967072851037800636FC8 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967062851037800636FC8 /* Clock.swift */; };
+		2D8967082851037800636FC8 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967062851037800636FC8 /* Clock.swift */; };
 		2DF4547F284E5DDF00F108BC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF4547E284E5DDF00F108BC /* WidgetKit.framework */; platformFilter = maccatalyst; };
 		2DF45481284E5DDF00F108BC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF45480284E5DDF00F108BC /* SwiftUI.framework */; platformFilter = maccatalyst; };
 		2DF45484284E5DDF00F108BC /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45483284E5DDF00F108BC /* ClockWidget.swift */; };
@@ -20,6 +24,13 @@
 		2DF45489284E5DE300F108BC /* ClockWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45485284E5DDF00F108BC /* ClockWidget.intentdefinition */; };
 		2DF4548A284E5DE300F108BC /* ClockWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45485284E5DDF00F108BC /* ClockWidget.intentdefinition */; };
 		2DF4548D284E5DE300F108BC /* ClockWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2DF4547C284E5DDF00F108BC /* ClockWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2DF45493284E5F2E00F108BC /* CircleClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45492284E5F2E00F108BC /* CircleClock.swift */; };
+		2DF45494284E5F2E00F108BC /* CircleClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45492284E5F2E00F108BC /* CircleClock.swift */; };
+		2DF4549B284E62D500F108BC /* radioland.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DF4549A284E62C800F108BC /* radioland.regular.ttf */; };
+		2DF4549C284E62D600F108BC /* radioland.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DF4549A284E62C800F108BC /* radioland.regular.ttf */; };
+		2DF4549D284E62D700F108BC /* radioland.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DF4549A284E62C800F108BC /* radioland.regular.ttf */; };
+		2DF454A0284F95D500F108BC /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4549F284F95D500F108BC /* FontStyle.swift */; };
+		2DF454A1284F95D500F108BC /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4549F284F95D500F108BC /* FontStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +64,8 @@
 		2D54189A284518DD00E523B6 /* CircleClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircleClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5418A0284518DD00E523B6 /* circle-clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "circle-clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5418A2284518DD00E523B6 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		2D8967032850FCFF00636FC8 /* DigitalClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalClock.swift; sourceTree = "<group>"; };
+		2D8967062851037800636FC8 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		2DF4547C284E5DDF00F108BC /* ClockWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClockWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF4547E284E5DDF00F108BC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2DF45480284E5DDF00F108BC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -60,6 +73,10 @@
 		2DF45485284E5DDF00F108BC /* ClockWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ClockWidget.intentdefinition; sourceTree = "<group>"; };
 		2DF45486284E5DE300F108BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DF45488284E5DE300F108BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DF45492284E5F2E00F108BC /* CircleClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleClock.swift; sourceTree = "<group>"; };
+		2DF4549A284E62C800F108BC /* radioland.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = radioland.regular.ttf; sourceTree = "<group>"; };
+		2DF4549E284E635B00F108BC /* circle-clock--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "circle-clock--iOS--Info.plist"; sourceTree = "<group>"; };
+		2DF4549F284F95D500F108BC /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +109,7 @@
 		2D54188D284518D400E523B6 = {
 			isa = PBXGroup;
 			children = (
+				2DF4549E284E635B00F108BC /* circle-clock--iOS--Info.plist */,
 				2D541892284518D500E523B6 /* Shared */,
 				2D5418A1284518DD00E523B6 /* macOS */,
 				2DF45482284E5DDF00F108BC /* ClockWidget */,
@@ -103,9 +121,12 @@
 		2D541892284518D500E523B6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2D8967022850FC6700636FC8 /* Component */,
+				2DF45499284E62B500F108BC /* Font */,
 				2D541893284518D500E523B6 /* CircleClockApp.swift */,
 				2D541894284518D500E523B6 /* ContentView.swift */,
 				2D541895284518DD00E523B6 /* Assets.xcassets */,
+				2DF4549F284F95D500F108BC /* FontStyle.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -128,6 +149,16 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+		2D8967022850FC6700636FC8 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				2DF45492284E5F2E00F108BC /* CircleClock.swift */,
+				2D8967032850FCFF00636FC8 /* DigitalClock.swift */,
+				2D8967062851037800636FC8 /* Clock.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		2DF4547D284E5DDF00F108BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +177,14 @@
 				2DF45488284E5DE300F108BC /* Info.plist */,
 			);
 			path = ClockWidget;
+			sourceTree = "<group>";
+		};
+		2DF45499284E62B500F108BC /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2DF4549A284E62C800F108BC /* radioland.regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D5418A7284518DD00E523B6 /* Assets.xcassets in Resources */,
+				2DF4549B284E62D500F108BC /* radioland.regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D5418A8284518DD00E523B6 /* Assets.xcassets in Resources */,
+				2DF4549C284E62D600F108BC /* radioland.regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF45487284E5DE300F108BC /* Assets.xcassets in Resources */,
+				2DF4549D284E62D700F108BC /* radioland.regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +319,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF45493284E5F2E00F108BC /* CircleClock.swift in Sources */,
+				2D8967042850FCFF00636FC8 /* DigitalClock.swift in Sources */,
+				2DF454A0284F95D500F108BC /* FontStyle.swift in Sources */,
+				2D8967072851037800636FC8 /* Clock.swift in Sources */,
 				2D5418A5284518DD00E523B6 /* ContentView.swift in Sources */,
 				2DF4548A284E5DE300F108BC /* ClockWidget.intentdefinition in Sources */,
 				2D5418A3284518DD00E523B6 /* CircleClockApp.swift in Sources */,
@@ -287,8 +333,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8967082851037800636FC8 /* Clock.swift in Sources */,
 				2D5418A6284518DD00E523B6 /* ContentView.swift in Sources */,
+				2D8967052850FCFF00636FC8 /* DigitalClock.swift in Sources */,
 				2D5418A4284518DD00E523B6 /* CircleClockApp.swift in Sources */,
+				2DF45494284E5F2E00F108BC /* CircleClock.swift in Sources */,
+				2DF454A1284F95D500F108BC /* FontStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,10 +479,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 53Q6P6AQV8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "circle-clock--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -446,6 +499,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weilun.circle.clock;
 				PRODUCT_NAME = CircleClock;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -459,10 +513,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 53Q6P6AQV8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "circle-clock--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -476,6 +533,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weilun.circle.clock;
 				PRODUCT_NAME = CircleClock;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -493,6 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 53Q6P6AQV8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -519,6 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 53Q6P6AQV8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -543,6 +603,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 53Q6P6AQV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ClockWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ClockWidget;
@@ -571,6 +632,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 53Q6P6AQV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ClockWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ClockWidget;
