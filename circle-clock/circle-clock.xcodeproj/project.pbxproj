@@ -17,6 +17,8 @@
 		2D8967052850FCFF00636FC8 /* DigitalClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967032850FCFF00636FC8 /* DigitalClock.swift */; };
 		2D8967072851037800636FC8 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967062851037800636FC8 /* Clock.swift */; };
 		2D8967082851037800636FC8 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967062851037800636FC8 /* Clock.swift */; };
+		2D89670A285247F200636FC8 /* ChooseLocaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D896709285247EB00636FC8 /* ChooseLocaleView.swift */; };
+		2D89670B285247F200636FC8 /* ChooseLocaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D896709285247EB00636FC8 /* ChooseLocaleView.swift */; };
 		2DF4547F284E5DDF00F108BC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF4547E284E5DDF00F108BC /* WidgetKit.framework */; platformFilter = maccatalyst; };
 		2DF45481284E5DDF00F108BC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF45480284E5DDF00F108BC /* SwiftUI.framework */; platformFilter = maccatalyst; };
 		2DF45484284E5DDF00F108BC /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45483284E5DDF00F108BC /* ClockWidget.swift */; };
@@ -66,6 +68,7 @@
 		2D5418A2284518DD00E523B6 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		2D8967032850FCFF00636FC8 /* DigitalClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalClock.swift; sourceTree = "<group>"; };
 		2D8967062851037800636FC8 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		2D896709285247EB00636FC8 /* ChooseLocaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocaleView.swift; sourceTree = "<group>"; };
 		2DF4547C284E5DDF00F108BC /* ClockWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClockWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF4547E284E5DDF00F108BC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2DF45480284E5DDF00F108BC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -121,6 +124,7 @@
 		2D541892284518D500E523B6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2D896709285247EB00636FC8 /* ChooseLocaleView.swift */,
 				2D8967022850FC6700636FC8 /* Component */,
 				2DF45499284E62B500F108BC /* Font */,
 				2D541893284518D500E523B6 /* CircleClockApp.swift */,
@@ -324,6 +328,7 @@
 				2DF454A0284F95D500F108BC /* FontStyle.swift in Sources */,
 				2D8967072851037800636FC8 /* Clock.swift in Sources */,
 				2D5418A5284518DD00E523B6 /* ContentView.swift in Sources */,
+				2D89670A285247F200636FC8 /* ChooseLocaleView.swift in Sources */,
 				2DF4548A284E5DE300F108BC /* ClockWidget.intentdefinition in Sources */,
 				2D5418A3284518DD00E523B6 /* CircleClockApp.swift in Sources */,
 			);
@@ -334,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D8967082851037800636FC8 /* Clock.swift in Sources */,
+				2D89670B285247F200636FC8 /* ChooseLocaleView.swift in Sources */,
 				2D5418A6284518DD00E523B6 /* ContentView.swift in Sources */,
 				2D8967052850FCFF00636FC8 /* DigitalClock.swift in Sources */,
 				2D5418A4284518DD00E523B6 /* CircleClockApp.swift in Sources */,
