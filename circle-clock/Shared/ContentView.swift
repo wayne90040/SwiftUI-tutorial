@@ -10,13 +10,15 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var isShowSheet: Bool = false
+    @State private var timeZone: String = "Asia/Taipei"
     @State var hour: Int = 0
     @State var minute: Int = 0
     @State var second: Int = 0
+    
     private var timer: Timer?
     
     var body: some View {
-        
+
         let rightBarItem = Button {
             isShowSheet.toggle()
         } label: {
@@ -29,21 +31,20 @@ struct ContentView: View {
                 CircleClock(hour: $hour, minute: $minute, second: $second)
                 DigitalClock(hour: $hour, minute: $minute, second: $second)
             }
-            .navigationTitle("台灣")
+            .navigationTitle(timeZone)
             .navigationBarItems(trailing: rightBarItem)
             
         }
         .onAppear(perform: startTimer)
         .sheet(isPresented: $isShowSheet) {
-            ChooseLocaleView()
+            ChooseLocaleView(timeZone: $timeZone)
         }
-        
     }
     
     private func startTimer() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            let calendar = Calendar.current
-            
+            var calendar = Calendar.current
+            calendar.timeZone = TimeZone(identifier: timeZone) ?? TimeZone.current
             let components = calendar.dateComponents([.hour, .minute, .second], from: Date())
             hour = components.hour ?? 0
             minute = components.minute ?? 0

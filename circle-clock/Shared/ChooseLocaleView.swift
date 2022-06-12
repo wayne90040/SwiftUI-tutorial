@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct ChooseLocaleView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    @Binding var timeZone: String
+    
     var body: some View {
-        VStack {
-            ForEach(TimeZone.knownTimeZoneIdentifiers, id: \.self) {
-                Text($0)
+        
+        NavigationView {
+            List(TimeZone.knownTimeZoneIdentifiers, id: \.self) { item in
+                Button {
+                    timeZone = item
+                    dismiss()
+                } label: {
+                    Text(item)
+                }
             }
+            .navigationTitle("Choose Locale")
         }
+        
     }
 }
