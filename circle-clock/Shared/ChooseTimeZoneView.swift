@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-struct ChooseLocaleView: View {
+struct ChooseTimeZoneView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @State private var query: String = ""
+    @State private var timeZones: [String] = TimeZone.knownTimeZoneIdentifiers
     @Binding var timeZone: String
+    
     
     var body: some View {
         
         NavigationView {
-            List(TimeZone.knownTimeZoneIdentifiers, id: \.self) { item in
+            List(timeZones, id: \.self) { item in
                 Button {
                     timeZone = item
                     dismiss()
@@ -25,6 +28,9 @@ struct ChooseLocaleView: View {
             }
             .navigationTitle("Choose Locale")
         }
-        
+        .searchable(text: $query)
+        .onChange(of: query) { _ in
+            timeZones = query.isEmpty ? TimeZone.knownTimeZoneIdentifiers : TimeZone.knownTimeZoneIdentifiers.filter { $0.contains(query) }
+        }
     }
 }

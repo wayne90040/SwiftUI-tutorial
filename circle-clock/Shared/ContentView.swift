@@ -37,7 +37,7 @@ struct ContentView: View {
         }
         .onAppear(perform: startTimer)
         .sheet(isPresented: $isShowSheet) {
-            ChooseLocaleView(timeZone: $timeZone)
+            ChooseTimeZoneView(timeZone: $timeZone)
         }
     }
     
