@@ -6,12 +6,38 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct CircleClockApp: App {
+    @State var isShowSheet: Bool = false
+    
+    let store = Store(
+        initialState: TimeZoneState(),
+        reducer: timeZonerReducer,
+        environment: TimeZoneEnvironment()
+    )
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        
+        var rightItem: some View {
+            Button {
+                isShowSheet.toggle()
+            } label: {
+                Image(systemName: "square.grid.2x2.fill")
+                    .foregroundColor(.black)
+            }
+        }
+        
+        return WindowGroup {
+            NavigationView {
+                ContentView(store: store.scope(state: \.clockState))
+                    .navigationBarItems(trailing: rightItem)
+            }
+            .sheet(isPresented: $isShowSheet) {
+                ChooseTimeZoneView(store: store.scope(state: \.searchState))
+            }
+            
         }
     }
 }

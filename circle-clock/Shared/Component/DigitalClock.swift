@@ -9,11 +9,11 @@ import SwiftUI
 
 struct DigitalClock: Clock {
     
-    @Binding var hour: Int
+    var hour: Int
 
-    @Binding var minute: Int
+    var minute: Int
     
-    @Binding var second: Int
+    var second: Int
     
     var body: some View {
         Text("\n\(hour):\(minute):\(second)")

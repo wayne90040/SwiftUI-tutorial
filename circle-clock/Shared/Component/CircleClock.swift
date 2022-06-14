@@ -11,9 +11,9 @@ import SwiftUI
 
 struct CircleClock: Clock {
     
-    @Binding var hour: Int
-    @Binding var minute: Int
-    @Binding var second: Int
+    var hour: Int
+    var minute: Int
+    var second: Int
     
     var body: some View {
     

@@ -19,6 +19,8 @@
 		2D8967082851037800636FC8 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967062851037800636FC8 /* Clock.swift */; };
 		2D89670A285247F200636FC8 /* ChooseTimeZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D896709285247EB00636FC8 /* ChooseTimeZoneView.swift */; };
 		2D89670B285247F200636FC8 /* ChooseTimeZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D896709285247EB00636FC8 /* ChooseTimeZoneView.swift */; };
+		2D89670F285786A400636FC8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2D89670E285786A400636FC8 /* ComposableArchitecture */; };
+		2D8967122858E3F500636FC8 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967112858E3F500636FC8 /* AppReducer.swift */; };
 		2DF4547F284E5DDF00F108BC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF4547E284E5DDF00F108BC /* WidgetKit.framework */; platformFilter = maccatalyst; };
 		2DF45481284E5DDF00F108BC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF45480284E5DDF00F108BC /* SwiftUI.framework */; platformFilter = maccatalyst; };
 		2DF45484284E5DDF00F108BC /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45483284E5DDF00F108BC /* ClockWidget.swift */; };
@@ -69,6 +71,7 @@
 		2D8967032850FCFF00636FC8 /* DigitalClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalClock.swift; sourceTree = "<group>"; };
 		2D8967062851037800636FC8 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		2D896709285247EB00636FC8 /* ChooseTimeZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTimeZoneView.swift; sourceTree = "<group>"; };
+		2D8967112858E3F500636FC8 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		2DF4547C284E5DDF00F108BC /* ClockWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClockWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF4547E284E5DDF00F108BC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2DF45480284E5DDF00F108BC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -87,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D89670F285786A400636FC8 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,11 +128,11 @@
 		2D541892284518D500E523B6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				2D896709285247EB00636FC8 /* ChooseTimeZoneView.swift */,
+				2D8967102858E3DF00636FC8 /* Reducer */,
+				2D89670C2857860200636FC8 /* View */,
 				2D8967022850FC6700636FC8 /* Component */,
 				2DF45499284E62B500F108BC /* Font */,
 				2D541893284518D500E523B6 /* CircleClockApp.swift */,
-				2D541894284518D500E523B6 /* ContentView.swift */,
 				2D541895284518DD00E523B6 /* Assets.xcassets */,
 				2DF4549F284F95D500F108BC /* FontStyle.swift */,
 			);
@@ -161,6 +165,23 @@
 				2D8967062851037800636FC8 /* Clock.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		2D89670C2857860200636FC8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D541894284518D500E523B6 /* ContentView.swift */,
+				2D896709285247EB00636FC8 /* ChooseTimeZoneView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D8967102858E3DF00636FC8 /* Reducer */ = {
+			isa = PBXGroup;
+			children = (
+				2D8967112858E3F500636FC8 /* AppReducer.swift */,
+			);
+			path = Reducer;
 			sourceTree = "<group>";
 		};
 		2DF4547D284E5DDF00F108BC /* Frameworks */ = {
@@ -209,6 +230,9 @@
 				2DF4548C284E5DE300F108BC /* PBXTargetDependency */,
 			);
 			name = "circle-clock (iOS)";
+			packageProductDependencies = (
+				2D89670E285786A400636FC8 /* ComposableArchitecture */,
+			);
 			productName = "circle-clock (iOS)";
 			productReference = 2D54189A284518DD00E523B6 /* CircleClock.app */;
 			productType = "com.apple.product-type.application";
@@ -277,6 +301,9 @@
 				Base,
 			);
 			mainGroup = 2D54188D284518D400E523B6;
+			packageReferences = (
+				2D89670D285786A400636FC8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 2D54189B284518DD00E523B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -326,6 +353,7 @@
 				2DF45493284E5F2E00F108BC /* CircleClock.swift in Sources */,
 				2D8967042850FCFF00636FC8 /* DigitalClock.swift in Sources */,
 				2DF454A0284F95D500F108BC /* FontStyle.swift in Sources */,
+				2D8967122858E3F500636FC8 /* AppReducer.swift in Sources */,
 				2D8967072851037800636FC8 /* Clock.swift in Sources */,
 				2D5418A5284518DD00E523B6 /* ContentView.swift in Sources */,
 				2D89670A285247F200636FC8 /* ChooseTimeZoneView.swift in Sources */,
@@ -701,6 +729,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2D89670D285786A400636FC8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2D89670E285786A400636FC8 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D89670D285786A400636FC8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2D54188E284518D400E523B6 /* Project object */;
 }
