@@ -15,7 +15,6 @@ struct ContentView: View {
     var body: some View {
         
         WithViewStore(store) { store in
-            
             VStack {
                 CircleClock(
                     hour: store.hour,
@@ -30,21 +29,8 @@ struct ContentView: View {
             }
             .navigationTitle(store.timeZone)
             .onAppear(perform: {
-                startTimer(store)
+                store.send(.start)
             })
-        }
-    }
-    
-    private func startTimer(_ store: ViewStore<ClockState, TimeZoneAction>) {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            var calendar = Calendar.current
-            calendar.timeZone = TimeZone(identifier: store.timeZone) ?? TimeZone.current
-            let components = calendar.dateComponents([.hour, .minute, .second], from: Date())
-            store.send(.currentTime(
-                hour: components.hour ?? 0,
-                minute: components.minute ?? 0,
-                second: components.second ?? 0
-            ))
         }
     }
 }

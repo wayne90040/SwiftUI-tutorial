@@ -10,12 +10,13 @@ import ComposableArchitecture
 
 @main
 struct CircleClockApp: App {
+    
     @State var isShowSheet: Bool = false
     
     let store = Store(
         initialState: TimeZoneState(),
         reducer: timeZonerReducer,
-        environment: TimeZoneEnvironment()
+        environment: .live
     )
     
     var body: some Scene {

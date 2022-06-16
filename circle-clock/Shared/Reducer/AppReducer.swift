@@ -28,11 +28,22 @@ enum TimeZoneAction {
     case choose(timeZone: String)
     case currentTime(hour: Int, minute: Int, second: Int)
     case query(text: String)
+    case start
+    /// Effect
+    case update
 }
 
-struct TimeZoneEnvironment { }
+struct TimeZoneEnvironment {
+    var date: () -> Date
+    var mainQueue: AnySchedulerOf<DispatchQueue>
+    
+    static var live: TimeZoneEnvironment {
+        .init(date: Date.init, mainQueue: .main)
+    }
+}
 
 let timeZonerReducer = Reducer<TimeZoneState, TimeZoneAction, TimeZoneEnvironment> { state, action, environemnt in
+    struct TimerId: Hashable {}
     switch action {
     case .choose(let timeZone):
         state.clockState.timeZone = timeZone
@@ -46,6 +57,24 @@ let timeZonerReducer = Reducer<TimeZoneState, TimeZoneAction, TimeZoneEnvironmen
         state.searchState.timeZones = text.isEmpty ?
         TimeZone.knownTimeZoneIdentifiers :
         TimeZone.knownTimeZoneIdentifiers.filter { $0.contains(text) }
+        return .none
+    case .start:
+        return Effect.timer(
+              id: TimerId(),
+              every: .milliseconds(1000),
+              tolerance: .zero,
+              on: environemnt.mainQueue
+            ).map { time -> TimeZoneAction in
+                return TimeZoneAction.update
+            }
+    /// Effect from start
+    case .update:
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: state.clockState.timeZone) ?? TimeZone.current
+        let components = calendar.dateComponents([.hour, .minute, .second], from: Date())
+        state.clockState.hour = components.hour ?? 0
+        state.clockState.minute = components.minute ?? 0
+        state.clockState.second = components.second ?? 0
         return .none
     }
 }
