@@ -42,9 +42,22 @@ struct SimpleEntry: TimelineEntry {
 
 struct ClockWidgetEntryView : View {
     var entry: Provider.Entry
+    
+    @Environment(\.widgetFamily) var family
 
     var body: some View {
-        Text(entry.date, style: .time)
+        switch family {
+        case .systemSmall:
+            SmallWidget()
+        case .systemMedium:
+            MediumWidget()
+        case .systemLarge:
+            LargeWidget()
+        case .systemExtraLarge:
+            Text("Extra Large mode")
+        @unknown default:
+            fatalError()
+        }
     }
 }
 
@@ -56,7 +69,7 @@ struct ClockWidget: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             ClockWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
+        .configurationDisplayName("Clock Widget")
         .description("This is an example widget.")
     }
 }

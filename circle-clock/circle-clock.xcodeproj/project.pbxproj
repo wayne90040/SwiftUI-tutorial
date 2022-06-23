@@ -21,6 +21,14 @@
 		2D89670B285247F200636FC8 /* ChooseTimeZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D896709285247EB00636FC8 /* ChooseTimeZoneView.swift */; };
 		2D89670F285786A400636FC8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2D89670E285786A400636FC8 /* ComposableArchitecture */; };
 		2D8967122858E3F500636FC8 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967112858E3F500636FC8 /* AppReducer.swift */; };
+		2DAED8C22860C1B200805BD9 /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAED8C12860C1B200805BD9 /* SmallWidget.swift */; };
+		2DAED8C42860C1CA00805BD9 /* MediumWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAED8C32860C1CA00805BD9 /* MediumWidget.swift */; };
+		2DAED8C62860C1EC00805BD9 /* LargeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAED8C52860C1EC00805BD9 /* LargeWidget.swift */; };
+		2DAED8C72860C22600805BD9 /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAED8C12860C1B200805BD9 /* SmallWidget.swift */; };
+		2DAED8C82860C22900805BD9 /* MediumWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAED8C32860C1CA00805BD9 /* MediumWidget.swift */; };
+		2DAED8C92860C22C00805BD9 /* LargeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAED8C52860C1EC00805BD9 /* LargeWidget.swift */; };
+		2DAED8CA2860C35D00805BD9 /* CircleClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45492284E5F2E00F108BC /* CircleClock.swift */; };
+		2DAED8CB2860C3CE00805BD9 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8967062851037800636FC8 /* Clock.swift */; };
 		2DF4547F284E5DDF00F108BC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF4547E284E5DDF00F108BC /* WidgetKit.framework */; platformFilter = maccatalyst; };
 		2DF45481284E5DDF00F108BC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF45480284E5DDF00F108BC /* SwiftUI.framework */; platformFilter = maccatalyst; };
 		2DF45484284E5DDF00F108BC /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF45483284E5DDF00F108BC /* ClockWidget.swift */; };
@@ -72,6 +80,9 @@
 		2D8967062851037800636FC8 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		2D896709285247EB00636FC8 /* ChooseTimeZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTimeZoneView.swift; sourceTree = "<group>"; };
 		2D8967112858E3F500636FC8 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		2DAED8C12860C1B200805BD9 /* SmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidget.swift; sourceTree = "<group>"; };
+		2DAED8C32860C1CA00805BD9 /* MediumWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidget.swift; sourceTree = "<group>"; };
+		2DAED8C52860C1EC00805BD9 /* LargeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeWidget.swift; sourceTree = "<group>"; };
 		2DF4547C284E5DDF00F108BC /* ClockWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClockWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF4547E284E5DDF00F108BC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2DF45480284E5DDF00F108BC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -184,6 +195,16 @@
 			path = Reducer;
 			sourceTree = "<group>";
 		};
+		2DAED8C02860C17700805BD9 /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				2DAED8C12860C1B200805BD9 /* SmallWidget.swift */,
+				2DAED8C32860C1CA00805BD9 /* MediumWidget.swift */,
+				2DAED8C52860C1EC00805BD9 /* LargeWidget.swift */,
+			);
+			path = Mode;
+			sourceTree = "<group>";
+		};
 		2DF4547D284E5DDF00F108BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +217,7 @@
 		2DF45482284E5DDF00F108BC /* ClockWidget */ = {
 			isa = PBXGroup;
 			children = (
+				2DAED8C02860C17700805BD9 /* Mode */,
 				2DF45483284E5DDF00F108BC /* ClockWidget.swift */,
 				2DF45485284E5DDF00F108BC /* ClockWidget.intentdefinition */,
 				2DF45486284E5DE300F108BC /* Assets.xcassets */,
@@ -355,6 +377,9 @@
 				2DF454A0284F95D500F108BC /* FontStyle.swift in Sources */,
 				2D8967122858E3F500636FC8 /* AppReducer.swift in Sources */,
 				2D8967072851037800636FC8 /* Clock.swift in Sources */,
+				2DAED8C42860C1CA00805BD9 /* MediumWidget.swift in Sources */,
+				2DAED8C22860C1B200805BD9 /* SmallWidget.swift in Sources */,
+				2DAED8C62860C1EC00805BD9 /* LargeWidget.swift in Sources */,
 				2D5418A5284518DD00E523B6 /* ContentView.swift in Sources */,
 				2D89670A285247F200636FC8 /* ChooseTimeZoneView.swift in Sources */,
 				2DF4548A284E5DE300F108BC /* ClockWidget.intentdefinition in Sources */,
@@ -380,8 +405,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DAED8CA2860C35D00805BD9 /* CircleClock.swift in Sources */,
+				2DAED8C92860C22C00805BD9 /* LargeWidget.swift in Sources */,
 				2DF45484284E5DDF00F108BC /* ClockWidget.swift in Sources */,
+				2DAED8CB2860C3CE00805BD9 /* Clock.swift in Sources */,
 				2DF45489284E5DE300F108BC /* ClockWidget.intentdefinition in Sources */,
+				2DAED8C82860C22900805BD9 /* MediumWidget.swift in Sources */,
+				2DAED8C72860C22600805BD9 /* SmallWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
