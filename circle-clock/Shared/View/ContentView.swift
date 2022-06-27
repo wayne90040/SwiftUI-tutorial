@@ -16,11 +16,12 @@ struct ContentView: View {
         
         WithViewStore(store) { store in
             VStack {
-                CircleClock(
+                RoundClock(
                     hour: store.hour,
                     minute: store.minute,
                     second: store.second
-                )
+                ).roundClockStyle(NormalRoundClockStyle())
+                
                 DigitalClock(
                     hour: store.hour,
                     minute: store.minute,
