@@ -12,11 +12,28 @@ protocol RoundClockStyle {
     associatedtype Body: View
     typealias Configuration = RoundClockStyleConfiguration
     
+    var size: Double { get }
+    
+    var hourHandWidth: Double { get }
+    
+    var minHandWidth: Double { get }
+    
+    var secondHandWidth: Double { get }
+    
     func makeBody(configuration: Self.Configuration) -> Self.Body
 }
 
 
 extension RoundClockStyle {
+    
+    var size: Double { 200 }
+    
+    var hourHandWidth: Double { 4 }
+
+    var minHandWidth: Double { 3 }
+    
+    var secondHandWidth: Double { 2 }
+    
     func makeBody(configuration: Self.Configuration) -> some View {
         
         ZStack {
@@ -31,22 +48,23 @@ extension RoundClockStyle {
                 .frame(width: 15, height: 15, alignment: .center)
             
             configuration.hourHand
-                .frame(width: 4, alignment: .center)
+                .frame(width: secondHandWidth, alignment: .center)
                 .rotationEffect(.radians(configuration.hourAngle))
             
             configuration.minHand
-                .frame(width: 3, alignment: .center)
+                .frame(width: minHandWidth, alignment: .center)
                 .rotationEffect(.radians(configuration.minAngle))
             
             configuration.secondHand
                 .foregroundColor(.red)
-                .frame(width: 2, alignment: .center)
+                .frame(width: secondHandWidth, alignment: .center)
                 .rotationEffect(.radians(configuration.secondAngle))
             
             Circle()
                 .foregroundColor(.red)
                 .frame(width: 7, height: 7, alignment: .center)
         }
-        .frame(width: 200, height: 200, alignment: .leading)
+        .frame(width: size, height: size, alignment: .leading)
+        .padding(5)
     }
 }

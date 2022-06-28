@@ -11,17 +11,20 @@ import Intents
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+        print("Do placeholder")
+        return SimpleEntry(date: Date(), configuration: ConfigurationIntent())
     }
-
+    
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+        print("Do getSnapshot")
         let entry = SimpleEntry(date: Date(), configuration: configuration)
         completion(entry)
     }
-
+    
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        print("Do getTimerline")
         var entries: [SimpleEntry] = []
-
+        
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
@@ -29,7 +32,7 @@ struct Provider: IntentTimelineProvider {
             let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
-
+        
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
@@ -40,31 +43,48 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationIntent
 }
 
+
+// MARK: - EntryView
 struct ClockWidgetEntryView : View {
-    var entry: Provider.Entry
+    
+    //    var entry: Provider.Entry
+    
+    var entry: SimpleEntry
     
     @Environment(\.widgetFamily) var family
-
+    
     var body: some View {
-        switch family {
-        case .systemSmall:
-            SmallWidget()
-        case .systemMedium:
-            MediumWidget()
-        case .systemLarge:
-            LargeWidget()
-        case .systemExtraLarge:
-            Text("Extra Large mode")
-        @unknown default:
-            fatalError()
-        }
+        print("Do ClockWidgetEntryView")
+        return Text("Test")
     }
+    
+//    var body: some View {
+//
+//        switch family {
+//
+//        case .systemSmall:
+//            RoundClock(hour: 0, minute: 0, second: 0)
+//                .roundClockStyle(SmallRoundClockStyle())
+//
+//        case .systemMedium:
+//            MediumWidget()
+//
+//        case .systemLarge:
+//            LargeWidget()
+//
+//        case .systemExtraLarge:
+//            Text("Extra Large mode")
+//
+//        @unknown default:
+//            fatalError()
+//        }
+//    }
 }
 
 @main
 struct ClockWidget: Widget {
     let kind: String = "ClockWidget"
-
+    
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             ClockWidgetEntryView(entry: entry)

@@ -7,6 +7,4 @@
 
 import Foundation
 
-struct NormalRoundClockStyle: RoundClockStyle {
-    
-}
+struct NormalRoundClockStyle: RoundClockStyle { }

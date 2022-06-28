@@ -10,12 +10,8 @@ import SwiftUI
 struct SmallWidget: View {
     
     var body: some View {
-        SmallClock(
-            hour: 9,
-            minute: 39,
-            second: 2
-        )
-        .frame(width: 50, height: 50)
+        RoundClock(hour: 0, minute: 0, second: 0)
+            .roundClockStyle(SmallRoundClockStyle())
     }
 }
 
