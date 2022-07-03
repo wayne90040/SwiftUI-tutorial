@@ -11,74 +11,117 @@ import Intents
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        print("Do placeholder")
-        return SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+        .init(
+            date: Date(),
+            timeZone: "Asia/Taipei",
+            hour: 0,
+            minute: 0,
+            second: 0,
+            configuration: ConfigurationIntent()
+        )
     }
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        print("Do getSnapshot")
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
-        completion(entry)
+        completion(.init(
+            date: Date(),
+            timeZone: "Asia/Taipei",
+            hour: 0,
+            minute: 0,
+            second: 0,
+            configuration: configuration
+        )
+        )
     }
     
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         print("Do getTimerline")
         var entries: [SimpleEntry] = []
-        
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
         
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+        let refresh = Calendar.current.date(byAdding: .minute, value: 10, to: currentDate) ?? Date()
+    
+        for i in 0 ... 600 {
+            var calendar = Calendar.current
+            calendar.timeZone = .init(identifier: "Asia/Taipei") ?? .current
+//            let dateComponents = calendar.dateComponents([.hour, .minute, .second], from: currentDate)
+            
+            let entryDate = Calendar.current.date(byAdding: .second, value: i, to: currentDate)!
+            let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: entryDate)
+            
+            entries.append(
+                .init(
+                    date: entryDate,
+                    timeZone: "Asia/Taipei",
+                    hour: dateComponents.hour ?? 0,
+                    minute: dateComponents.minute ?? 0,
+                    second: dateComponents.second ?? 0,
+                    configuration: configuration
+                )
+            )
+        }
+        completion(.init(entries: entries, policy: .after(refresh)))
     }
 }
 
 struct SimpleEntry: TimelineEntry {
+    
     let date: Date
+    
+    var timeZone: String
+    
+    var hour: Int
+    
+    var minute: Int
+    
+    var second: Int
+    
     let configuration: ConfigurationIntent
+    
 }
 
 
 // MARK: - EntryView
 struct ClockWidgetEntryView : View {
     
-    //    var entry: Provider.Entry
+//        var entry: Provider.Entry
     
     var entry: SimpleEntry
     
     @Environment(\.widgetFamily) var family
     
-    var body: some View {
-        print("Do ClockWidgetEntryView")
-        return Text("Test")
-    }
-    
 //    var body: some View {
+//        VStack {
 //
-//        switch family {
-//
-//        case .systemSmall:
-//            RoundClock(hour: 0, minute: 0, second: 0)
-//                .roundClockStyle(SmallRoundClockStyle())
-//
-//        case .systemMedium:
-//            MediumWidget()
-//
-//        case .systemLarge:
-//            LargeWidget()
-//
-//        case .systemExtraLarge:
-//            Text("Extra Large mode")
-//
-//        @unknown default:
-//            fatalError()
+//            Text(entry.hour.description)
+//            Text(entry.minute.description)
+//            Text(entry.second.description)
+//            Text(entry.date.description)
 //        }
 //    }
+    
+    
+    // 不知道為啥 Widget 指針不會動
+    var body: some View {
+
+        switch family {
+
+        case .systemSmall:
+            RoundClock(hour: 0, minute: 0, second: 0)
+                .roundClockStyle(SmallRoundClockStyle())
+
+        case .systemMedium:
+            MediumWidget()
+
+        case .systemLarge:
+            LargeWidget()
+
+        case .systemExtraLarge:
+            Text("Extra Large mode")
+
+        @unknown default:
+            fatalError()
+        }
+    }
 }
 
 @main
@@ -94,9 +137,9 @@ struct ClockWidget: Widget {
     }
 }
 
-struct ClockWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        ClockWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
-}
+//struct ClockWidget_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ClockWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+//            .previewContext(WidgetPreviewContext(family: .systemSmall))
+//    }
+//}
